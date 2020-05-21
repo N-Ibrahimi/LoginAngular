@@ -1,1 +1,12 @@
-<p  [ngStyle]="currentStyles">element works! {{name}} </p>
+<p  [ngStyle]="currentStyles">element works! {{name | uppercase}} </p>
+<hr style="width: 50%;">
+classic solution <input type="text" [value]="myMessage"   (keyup)="myMessage=$event.srcElement.value"/> <!-- la fonctionnalité de ng model de manière calssique et sample pour comprendre -->
+<br>
+ binding with ngmodel <input type="text" [ngModel]="myMessage"   (ngModelChange)="myMessage=$event"/> <!-- la fonctionnalité de ng model de manière calssique et sample pour comprendre -->
+<br> <h4>showing message =>{{ myMessage }} </h4>
+<p> modifiing in same time withinbow and ngmodle (2 way binding)</p>
+<input type="text" [(ngModel)]="myMessage"/> <!--exemple ngmodel-->
+<hr style="width: 50%;">
+<p> this is the value that i want to fetch in parent template</p>
+<input type="text" (keypress)="sendValueToParent($event)">
+

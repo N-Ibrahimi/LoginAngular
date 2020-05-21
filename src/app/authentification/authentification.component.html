@@ -4,7 +4,12 @@
    <p *ngIf="element.submit ; else unsubmit"> User {{element.name}} has been submited !</p>
     <ng-template #unsubmit>this is not submited </ng-template>
 </div>
---> 
+-->
+<p [class]="textColor"  class="text-success font-italic"  > calss binging test </p>
 
-<app-element [name]="parentValue"></app-element>
 <p> this is parent value in its page => {{parentValue}}</p>
+<p> the value recived from child => {{ messageRecived }}</p>
+<br>
+<hr>
+<app-element [name]="parentValue"  (valueToSend)="messageRecived=$event" ></app-element>
+
