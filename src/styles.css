@@ -4,3 +4,7 @@
 */
 
 @import "~bootstrap/dist/css/bootstrap.css";
+
+.active {
+  background-color: aquamarine;
+}

@@ -1,9 +1,12 @@
-<h1>{{title}}</h1><!--interpolation call value  -->
-<input type="text" value={{title}}> <!--interpolation call value for attributs  -->
-<!-- <p> this run the function {{ doSomething()}} </p> <!--interpolation call methode -->
+<!--interpolation call value  -->
+<!-- <h4>{{title}}</h4> -->
+<!-- <input type="text" value={{title}}>  -->
+<!--interpolation call value for attributs  -->
+<!-- <p> this run the function {{ doSomething()}} </p> -->
+<!-- interpolation call methode -->
 <!-- add bosstrap et awsome font go on this site npmjs/ search the extention / copy code npm i font-awesome
 copy in cosole add after --save  and enter go to main css and add the line for importing  -->
-<!--event binding -->
+<!--event binding
 <button (click)="doSomethingforButton('show me this message')">Click on me</button>
 <br/>
 <p> get my value and show it in console </p>
@@ -11,12 +14,28 @@ copy in cosole add after --save  and enter go to main css and add the line for i
 <p> this is in the field <span style="color:red">{{ theTextInInput }}</span></p>
 <p> get text by ID # form input  <span style="color:red">{{ mytext.value }}</span></p>
 <button (click)="doSomethingforButton(mytext.value)"> show input text</button>
-<p [style.backgroundColor]="color" [hidden]="show"> this is a binding of attributs </p> <!-- value of color comes from component ts-->
+<p [style.backgroundColor]="color" [hidden]="show"> this is a binding of attributs </p> -->
+<!-- value of color comes from component ts-->
 
 <!-----------------------------two way binding -->
-<!--propeerty  binding -->
+<!--propeerty  binding
 <div style="width: 100px; height: 100;" [style.backgroundColor]="color"> type my color in input</div>
 put a color to set on text bkgrnd<input type="text" #selectedColor (change)="changaColor(selectedColor)"/>
 <br>
-<hr>
-<app-authentification></app-authentification>
+<hr>   -->
+<!-- <app-authentification></app-authentification> -->
+<router-outlet></router-outlet>
+<!-- a refrash the page but routlink dosen't do it but update it  -->
+<!-- routerLinkActive is to give the class name of css to active link -->
+<div class="container">
+ <a  routerLink="/list" routerLinkActive="active" >list</a><br>
+ <a  routerLink="/details/{{ theID }}" routerLinkActive="active" >details</a><br>
+ <a  href="/" >index</a><br>
+<!--  a better solution in code / by passing navigait([domain, id, name]) each , is a slash in url -->
+ <input type="text" [(ngModel)]="theID">find this text in url after click on details link above <br>
+<button  (click)="navaigateTO('/list')"> list</button><br>
+<button (click)="navaigateTO('/details/withThisID')"> details</button><br>
+<br>
+<a  routerLink="/details/{{ theID }}" routerLinkActive="active" [queryParams]="{'message':'specail message'}">details</a><br>
+<a  [routerLink]="['details', theID]" routerLinkActive="active" [queryParams]="{'message':'specail message'}">details</a><br>
+</div>

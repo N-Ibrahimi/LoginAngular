@@ -1,4 +1,5 @@
 import { Component, ViewEncapsulation } from '@angular/core';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -8,26 +9,36 @@ import { Component, ViewEncapsulation } from '@angular/core';
 })
 export class AppComponent {
 
-  title="our project";
-  color="orange";
-  show=undefined;
-  theTextInInput='';
+  constructor(private router: Router) {
+
+  }
+
+  title =  'our project';
+  color =  'orange ';
+  show = undefined;
+  theTextInInput = '';
+  theID = '';
 
   doSomething(){
-    alert("this is the message ");
+    alert( 'this is the message');
   }
 
 doSomethingforButton(something: string){
   alert(something);
 }
 
-getMyValue(event){
-  this.theTextInInput=event.srcElement.value;
+getMyValue(event) {
+  this.theTextInInput = event.srcElement.value;
 }
 
 changaColor(selColor){
-  this.color=selColor.value;
-  selColor.value="";
+  this.color = selColor.value;
+  selColor.value =  '';
 }
 
+// nvigate take un array this.router.navigate(['/', 'list','detailes']);
+navaigateTO(to: string) {
+  //this.router.navigateByUrl(to);
+  this.router.navigate([ to , this.theID]);
+}
 }
